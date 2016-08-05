@@ -1,0 +1,21 @@
+$nav-bg: #fff;
+
+.navbar {
+  border: none;
+  background: $nav-bg;
+
+  ul.navbar-nav {
+    li {
+      border-bottom: solid 3px $nav-bg;
+      > a {
+        font-weight: 300;
+      }
+    }
+    li.active {
+      border-bottom: solid 3px $brand-primary;
+    }
+    .dropdown-menu li.active {
+      border: none;
+    }
+  }
+}
