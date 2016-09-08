@@ -6,6 +6,7 @@ import {reducer as auth} from 'fl-auth-redux'
 import {reducer as admin} from 'fl-admin'
 import app from './modules/app/reducer'
 import profiles from './modules/users/profileReducer'
+import reporting from './modules/reporting/reducer'
 
 export default combineReducers({
   auth,
@@ -14,5 +15,6 @@ export default combineReducers({
   admin,
   app,
   profiles,
+  reporting,
   config: (state=new Immutable.Map()) => state,
 })
