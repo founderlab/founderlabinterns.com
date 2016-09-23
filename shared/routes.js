@@ -24,6 +24,7 @@ export default function getRoutes(store) {
 
       <AdminRoute path="/admin" name="admin" onEnter={requireAdmin} />
 
+      <Route path="reporting" component={require('./modules/app/components/Reporting')} />
       <Route path="login" component={require('./modules/users/containers/Login')} />
       <Route path="register" component={require('./modules/users/containers/Register')} />
       <Route path="reset-request" component={require('./modules/users/containers/ResetRequest')} />
