@@ -29,6 +29,8 @@ export default function getRoutes(store) {
       <Route path="reset-request" component={require('./modules/users/containers/ResetRequest')} />
       <Route path="reset" component={require('./modules/users/containers/Reset')} />
       <Route path="confirm-email" component={require('./modules/users/containers/EmailConfirm')} />
+      <Route path="reporting" component={require('./modules/users/containers/Reporting')} />
+
 
       <Route path="profile" onEnter={requireUser} component={require('./modules/users/containers/Profile')} />
 

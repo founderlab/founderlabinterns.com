@@ -8,6 +8,7 @@ import Footer from './Footer'
 import headerTags from '../headerTags'
 import {loadAppSettings} from '../actions'
 import {loadActiveProfile} from '../../users/profileActions'
+import {loadUsers} from '../../reporting/actions'
 
 @connect(state => ({config: state.config}))
 export default class App extends Component {
@@ -45,6 +46,8 @@ export default class App extends Component {
       const user_id = auth.get('user').get('id')
       queue.defer(callback => store.dispatch(loadActiveProfile({user_id}, callback)))
     }
+
+    queue.defer(callback => store.dispatch(loadUsers(callback)))
 
     queue.await(callback)
   }
