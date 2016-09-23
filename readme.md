@@ -22,6 +22,7 @@ Uses React, Redux, BackboneORM, Bootstrap, Webpack.
 ## [0.0.1]
  Initial version, probably broken in some way
 
+## Windows app development
 To start the app locally using cygwin:
 mongod (not in cygwin)
 SESSIONS_DATABASE_URL=redis://localhost:6379/0 NODE_ENV=development DATABASE_URL=mongodb://localhost:27017/founderlabinterns_com_development node index.js
