@@ -24,14 +24,12 @@ export default function getRoutes(store) {
 
       <AdminRoute path="/admin" name="admin" onEnter={requireAdmin} />
 
-      <Route path="reporting" component={require('./modules/app/components/Reporting')} />
       <Route path="login" component={require('./modules/users/containers/Login')} />
       <Route path="register" component={require('./modules/users/containers/Register')} />
       <Route path="reset-request" component={require('./modules/users/containers/ResetRequest')} />
       <Route path="reset" component={require('./modules/users/containers/Reset')} />
       <Route path="confirm-email" component={require('./modules/users/containers/EmailConfirm')} />
-      <Route path="reporting" component={require('./modules/users/containers/Reporting')} />
-
+      <Route path="reporting" component={require('./modules/reporting/containers/Reporting')} />
 
       <Route path="profile" onEnter={requireUser} component={require('./modules/users/containers/Profile')} />
 
