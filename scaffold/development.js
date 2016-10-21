@@ -1,4 +1,5 @@
 import _ from 'lodash' // eslint-disable-line
+import moment from 'moment'
 import Queue from 'queue-async'
 import User from '../server/models/User'
 
@@ -50,6 +51,16 @@ export default function scaffold(callback) {
                 let name = 'Admin ' + i
                 let gender = 'M'
                 let phone = ''
+
+                let days = Math.round(Math.random() * 8) + 1
+                let m = moment('11.0' + days + '.2016', 'DD-MM-YYYY')
+
+                //let dateString = moment()
+                //dateString = moment().subtract(days, 'days').calendar()
+                //console.log(dateString)
+                //let m = moment().subtract(days, 'days').calendar()
+                let date = m.toDate()
+                //console.log(date)
                 let admin = true
 
                 if (Math.round(Math.random() * 100) % 2 == 0) {
@@ -77,7 +88,9 @@ export default function scaffold(callback) {
                     password: password,
                     gender: gender,
                     phone: phone,   
+                    date: date,
                 })
+                
                 newUser.save(callback)
             })
         }
