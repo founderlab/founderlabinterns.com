@@ -16,7 +16,6 @@ export default class Reporting extends Component {
           <div className="row">
             <div className="col-lg-6 col-lg-offset-3">
               <p>Hello from components</p>
-              <p>{users}</p>
             </div>
           </div>
         </div>

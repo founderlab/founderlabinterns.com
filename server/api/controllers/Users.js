@@ -18,8 +18,8 @@ export default class UsersController extends RestController {
       route: '/api/users',
       auth: [...options.auth, createAuthMiddleware({canAccess})],
       whitelist: {
-        index: ['id', 'email'],
-        show: ['id', 'email'],
+        index: ['id', 'email', 'createdDate', 'date'],
+        show: ['id', 'email', 'createdDate', 'date'],
       },
     }, options))
   }
