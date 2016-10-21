@@ -8,14 +8,15 @@ export default class D3LineGraph extends React.Component {
 
     if (data.length === 0 ) {
       return null
-    } else {
+    }
+    else {
       //return d3 graph
       const margin = {top: 20, right: 20, bottom: 30, left: 50}
       const width = 960 - margin.left - margin.right
       const height = 500 - margin.top - margin.bottom
 
       // parse the date / time
-      const parseTime = d3.timeParse('%d-%b-%y')
+      // const parseTime = d3.timeParse('%d-%b-%y')
 
       // set the ranges
       const x = d3.scaleTime().range([0, width])
