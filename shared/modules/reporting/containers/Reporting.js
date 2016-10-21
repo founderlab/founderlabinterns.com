@@ -7,45 +7,20 @@ import Reporting from '../components/Reporting'
 
 @connect(state => ({reporting: state.reporting}))
 export default class ReportingContainer extends Component {
-  
   static propTypes = {
     reporting: PropTypes.object.isRequired,
   }
 
   static fetchData({store}, callback) {
-  	return store.dispatch(loadUsers(callback))
+    return store.dispatch(loadUsers(callback))
   }
 
   render() {
-  	const {reporting} = this.props
-    // const userData = reporting.toJSON()
-    // const models = userData.models
-
+    const {reporting} = this.props
     const users = reporting.get('models').toJSON()
     const userList = _.values(users)
-    //console.log('userList', userList)
-    
-    /*
-    console.log("for each working")
-    _.forEach(users, function(value, key) {
-      console.log(value.date)
-    })
-    */
-    
-    //console.log(models)
-    //console.log(userData)
-  	//const models = reporting.get('models').toJSON()
-  	//console.log(models)
-    //const parsedData = JSON.parse(models)
-  	//const users = []
-    /*
-    forEach(function(userList, user => user.createdDate) {
-      
-    })
-*/
-    const graphData = {
-      data: []
-    }
+    const graphData = []
+
     const countsByDay = _.countBy(userList, user => moment(user.date).hours(0).minutes(0).seconds(0).toDate())
     _.forEach(countsByDay, function(value, key) {
       const dateObj = new Date(key)
@@ -53,13 +28,13 @@ export default class ReportingContainer extends Component {
         date: dateObj,
         count: value,
       }
-      graphData.data.push(newData)
+      graphData.push(newData)
     })
-    //console.log('count', count)
-    //console.log(graphData)
+
+    graphData.sort(function(a, b) { return a.date > b.date })
 
     return (
-      <Reporting users={users} />
+      <Reporting graphData={graphData} />
     )
   }
 
